@@ -42,7 +42,7 @@ export default function Services() {
         <h2 className="text-5xl font-semibold mb-4 tracking-tight text-white">Services</h2>
         <p className="text-gray-400 mb-16 max-w-2xl mx-auto text-base md:text-lg">
           From design to deployment, we deliver digital experiences that are bold, scalable, and unforgettable.
-          Whether you're launching a brand or integrating AI into your platform—we’ve got you covered.
+          Whether you&apos;re launching a brand or integrating AI into your platform—we&apos;ve got you covered.
         </p>
 
         {/* Services Grid */}

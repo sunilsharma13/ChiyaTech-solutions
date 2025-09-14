@@ -3,7 +3,6 @@ import {
   FaPaintBrush,
   FaUserAlt,
   FaCogs,
-  FaEye,
   FaMobileAlt,
   FaHeadset,
   FaRobot,
