@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image'; // ✅ Added for optimized image
 
 export default function RegisterInterest() {
   const [formData, setFormData] = useState({
@@ -58,10 +59,12 @@ export default function RegisterInterest() {
         <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left Illustration */}
           <div className="hidden md:block min-h-[500px] flex items-center justify-center">
-            <img
+            <Image
               src="/Chiyatech.jpeg"
               alt="Illustration"
-              className="w-full h-auto object-contain max-w-md"
+              width={400}
+              height={400}
+              className="object-contain max-w-md"
             />
           </div>
 
@@ -126,7 +129,7 @@ export default function RegisterInterest() {
           <div className="bg-[#0a1f3d] text-white p-6 rounded-xl shadow-xl border border-blue-500 max-w-sm text-center">
             <h3 className="text-xl font-semibold mb-2">Thanks for reaching out!</h3>
             <p className="text-sm text-blue-200">
-              We'll get back to you shortly and help bring your vision to life.
+              We&apos;ll get back to you shortly and help bring your vision to life.
             </p>
             <button
               onClick={() => setShowPopup(false)}

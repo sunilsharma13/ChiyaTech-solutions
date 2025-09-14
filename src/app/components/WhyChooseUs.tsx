@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import '../styles/why.css';
+import Image from 'next/image'; // ✅ Add this at the top
 
 export default function WhyChooseUs() {
   const topics = [
@@ -77,13 +78,14 @@ export default function WhyChooseUs() {
           {/* Right Image + Content */}
           <div className="md:col-span-2 flex flex-col items-center">
             <div className="relative w-full max-w-[700px] h-[400px] rounded-xl overflow-hidden shadow-xl mb-6">
-              <img
-                src={topics[activeIndex].image}
-                alt={topics[activeIndex].label}
-                className={`w-full h-full object-cover transition-all duration-700 ease-out transform ${
-                  fade ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-                }`}
-              />
+            <Image
+  src={topics[activeIndex].image}
+  alt={topics[activeIndex].label}
+  fill
+  className={`object-cover transition-all duration-700 ease-out transform ${
+    fade ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+  }`}
+/>
 
               <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex flex-col justify-center items-center text-center px-6">
                 <div className="max-w-md min-h-[140px] flex flex-col justify-center">
