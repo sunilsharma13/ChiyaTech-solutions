@@ -152,10 +152,10 @@ export default function Navbar() {
                 WhatsApp Us
               </a>
               <a
-                href="mailto:hello@chiyantra.com"
+                href="mailto:chiyatech17@gmail.com"
                 className="bg-blue-600 hover:bg-blue-700 px-3 py-1.5 rounded transition"
               >
-                Email: sunil13.sharma08@gmail.com
+                Email: chiyatech17@gmail.com
               </a>
             </div>
             <button
