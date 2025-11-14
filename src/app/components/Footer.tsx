@@ -9,7 +9,7 @@ export default function Footer() {
 
         <div className="flex gap-6 text-xl">
           <a
-            href="https://instagram.com/ChiyaTech"
+            href="https://instagram.com/ChiyaTech17"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-pink-400 transition transform hover:scale-110 hover:drop-shadow-md"
