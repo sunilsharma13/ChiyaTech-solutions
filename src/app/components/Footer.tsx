@@ -17,7 +17,7 @@ export default function Footer() {
             <FaInstagram />
           </a>
           <a
-            href="https://linkedin.com/in/ChiyaTech"
+            href="https://linkedin.com/company/ChiyaTech"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-blue-400 transition transform hover:scale-110 hover:drop-shadow-md"
