@@ -1,104 +1,91 @@
 'use client';
-import { useState, useEffect } from 'react';
-import '../styles/why.css';
-import Image from 'next/image'; // ✅ Add this at the top
+
+import { motion } from 'framer-motion';
+import { FiZap, FiShield, FiUsers, FiCpu } from 'react-icons/fi';
+
+const features = [
+  {
+    icon: <FiZap />,
+    title: 'BLAZING FAST DELIVERY',
+    description:
+      'High-quality projects delivered on time—every single time. Our agile workflows ensure your MVP hits the market faster.',
+  },
+  {
+    icon: <FiShield />,
+    title: 'ROCK-SOLID SECURITY',
+    description:
+      'Security-first mindset from day one. Encryption, secure auth, and scalable architecture—zero compromises on safety.',
+  },
+  {
+    icon: <FiUsers />,
+    title: 'CLIENT-CENTRIC FOCUS',
+    description:
+      'Your vision drives every decision. Transparent pricing and 24/7 updates—we treat your project like our own.',
+  },
+  {
+    icon: <FiCpu />,
+    title: 'MODERN TECH STACK',
+    description:
+      'Next.js, AI integrations, and Cloud Native solutions. We stay ahead so your product never feels outdated.',
+  },
+];
 
 export default function WhyChooseUs() {
-  const topics = [
-    {
-      label: 'Web Design',
-      title: 'Cinematic Web Design',
-      description:
-        'We create immersive layouts, magnetic buttons, and scroll-triggered scenes that feel like a film. Every interaction is designed to evoke emotion and elevate your brand.',
-      image: '/img-1.png',
-    },
-    {
-      label: 'Development',
-      title: 'Scalable Development',
-      description:
-        'Built with Next.js, TailwindCSS, and modular architecture—our platforms are fast, clean, and built to grow with you.',
-      image: '/img-2.png',
-    },
-    {
-      label: 'Branding',
-      title: 'Expressive Branding',
-      description:
-        'From logos to iconography, we obsess over balance, polish, and visual identity. Your brand deserves to be unforgettable.',
-      image: '/img-3.png',
-    },
-    {
-      label: 'Marketing',
-      title: 'Conversion-Focused Marketing',
-      description:
-        'We blend strategy and storytelling—SEO, social, and funnels that drive engagement, build trust, and grow your audience.',
-      image: '/img-4.png',
-    },
-  ];
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [fade, setFade] = useState(true);
-
-  useEffect(() => {
-    setFade(false);
-    const timeout = setTimeout(() => setFade(true), 100);
-    return () => clearTimeout(timeout);
-  }, [activeIndex]);
-
   return (
-    <section id="vision" className="bg-[#0f0f0f] text-white py-24 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Heading */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-semibold mb-4 tracking-tight">Vision</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto text-base md:text-lg">
-            We blend expressive design, scalable engineering, and strategic thinking to deliver digital experiences that leave a mark.
-            Our work is driven by emotion, powered by technology, and crafted to inspire.
-          </p>
+    <section className="py-24 bg-[#F9FAFB] text-slate-900 overflow-hidden">
+      <div className="w-[90%] md:w-[72%] mx-auto">
+        
+        <div className="mb-16 md:mb-20 border-l-4 border-slate-900 pl-6 md:pl-10">
+          <motion.p
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="text-slate-500 font-bold tracking-[0.3em] uppercase text-[10px] md:text-xs mb-3"
+          >
+            The ChiyaTech Advantage
+          </motion.p>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.05]"
+          >
+            WHY SMART TEAMS <br className="hidden md:block"/> 
+            <span className="text-slate-400 font-medium">PARTNER WITH US.</span>
+          </motion.h2>
         </div>
 
-        {/* Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-          {/* Left Buttons */}
-          <div className="flex flex-col gap-4">
-            {topics.map((topic, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`text-left px-4 py-3 rounded-lg border transition duration-300 text-sm ${
-                  activeIndex === index
-                    ? 'bg-blue-600 border-blue-500 text-white shadow-md'
-                    : 'bg-[#1a1a1a] border-[#2a2a2a] text-gray-300 hover:bg-[#222] hover:border-blue-500'
-                }`}
-              >
-                {topic.label}
-              </button>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          {features.map((feature, i) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
+              whileHover={{ y: -5 }}
+              className="group relative bg-white border border-slate-200/60 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] overflow-hidden transition-all hover:border-slate-400 hover:shadow-[0_20px_50px_rgba(0,0,0,0.05)]"
+            >
+              <div className="absolute -right-10 -top-10 w-40 h-40 bg-slate-100 blur-[80px] group-hover:bg-slate-200 transition-all duration-500" />
 
-          {/* Right Image + Content */}
-          <div className="md:col-span-2 flex flex-col items-center">
-            <div className="relative w-full max-w-[700px] h-[400px] rounded-xl overflow-hidden shadow-xl mb-6">
-            <Image
-  src={topics[activeIndex].image}
-  alt={topics[activeIndex].label}
-  fill
-  className={`object-cover transition-all duration-700 ease-out transform ${
-    fade ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-  }`}
-/>
-
-              <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex flex-col justify-center items-center text-center px-6">
-                <div className="max-w-md min-h-[140px] flex flex-col justify-center">
-                  <h3 className="text-2xl md:text-3xl font-semibold text-white mb-3">
-                    {topics[activeIndex].title}
-                  </h3>
-                  <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                    {topics[activeIndex].description}
-                  </p>
+              <div className="relative z-10">
+                <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-50 text-slate-900 border border-slate-200 group-hover:bg-slate-900 group-hover:text-white transition-all duration-500 shadow-sm">
+                  <span className="text-2xl">{feature.icon}</span>
                 </div>
+
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight mb-4 uppercase text-slate-900">
+                  {feature.title}
+                </h3>
+
+                <p className="text-slate-500 leading-relaxed text-sm md:text-base font-medium max-w-sm">
+                  {feature.description}
+                </p>
+                
+                <div className="mt-8 h-[2px] w-8 bg-slate-200 group-hover:w-16 group-hover:bg-slate-900 transition-all duration-500" />
               </div>
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

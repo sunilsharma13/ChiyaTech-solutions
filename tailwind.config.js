@@ -1,17 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        primary: "#6C63FF", // Chiyantra Tech accent color
-        dark: "#0F0F0F",
-        light: "#F5F5F5",
+        primary: "#4F46E5",
+        background: "#F1F5F9", 
+        surface: "#FFFFFF",  
+        darkText: "#0F172A",
+        bodyText: "#475569",
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ['var(--font-jakarta)', 'Inter', 'sans-serif'],
       },
     },
   },
