@@ -42,11 +42,17 @@ export default function Navbar() {
       >
         <Link href="/" className="flex items-center gap-2 group shrink-0">
           <div className="relative w-8 h-8 overflow-hidden rounded-lg shadow-sm">
-            <Image src="/Chiyatech.jpeg" alt="Logo" fill className="object-cover" />
+<Image 
+  src="/Chiyatech.jpeg" 
+alt="ChiyaTech — Digital Product Studio"
+  fill 
+  className="object-cover" 
+/>
           </div>
-          <span className="text-lg font-bold tracking-tighter text-slate-900 italic">
-            CHIYA<span className="text-slate-800 not-italic uppercase font-black">TECH</span>
-          </span>
+          <h1 className="text-lg font-bold tracking-tighter text-slate-900 italic">
+  CHIYA<span className="text-slate-800 not-italic uppercase font-black">TECH</span>
+</h1>
+
         </Link>
 
         <div className="hidden lg:flex items-center gap-8">
