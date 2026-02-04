@@ -47,9 +47,9 @@ export default function Contact() {
       } else {
         setError(result.message || 'Server error occurred');
       }
-    } catch (err: any) {
-      setError('Failed to send. Please check your connection.');
-    } finally {
+    } catch (error: unknown) {
+  setError("Failed to send. Please check your connection.");
+} finally {
       setIsSubmitting(false);
     }
   };
