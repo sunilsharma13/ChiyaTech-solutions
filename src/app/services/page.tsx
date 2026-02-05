@@ -52,12 +52,15 @@ export default function ServicesPage() {
   ];
 
   return (
-    <section className="relative bg-[#F9FAFB] py-32 overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:40px_40px]" />
+    // Background changed to #e2e8f0 for contrast with Navbar and previous section
+    <section className="relative bg-[#e2e8f0] py-32 overflow-hidden">
+      
+      {/* Subtle Dot Pattern */}
+      <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(#000_1px,transparent_1px)] bg-[size:30px_30px]" />
       </div>
 
-      <div className="relative z-10 w-[90%] md:w-[72%] mx-auto">
+      <div className="relative z-10 w-[90%] md:w-[75%] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,51 +68,60 @@ export default function ServicesPage() {
           className="mb-24 border-l-4 border-slate-900 pl-6 md:pl-10"
         >
           <div className="flex items-center gap-2 mb-4">
-             <FiZap className="text-slate-400 text-xs" />
-             <p className="text-[10px] md:text-xs font-black tracking-[0.4em] text-slate-400 uppercase">Capabilities</p>
+             <FiZap className="text-indigo-600 text-sm animate-pulse" />
+             <p className="text-[10px] md:text-xs font-black tracking-[0.4em] text-slate-500 uppercase">Capabilities</p>
           </div>
           <h1 className="text-5xl md:text-8xl font-[900] tracking-tighter leading-[0.9] text-slate-900 uppercase">
             OUR CORE <br />
-            <span className="text-slate-400 italic font-medium">SERVICES.</span>
+            <span className="text-slate-500 italic font-medium">SERVICES.</span>
           </h1>
         </motion.div>
 
-        <div className="space-y-16">
+        <div className="space-y-12">
           {services.map((service, i) => (
             <motion.div
               key={service.id}
               id={service.id}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
+              viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: i * 0.05 }}
-              className="group grid md:grid-cols-2 gap-0 items-stretch rounded-[2.5rem] overflow-hidden border border-slate-200 bg-white hover:border-slate-900 hover:shadow-2xl transition-all duration-500"
+              className="group grid md:grid-cols-2 gap-0 items-stretch rounded-[3rem] overflow-hidden border border-white/40 bg-white/70 backdrop-blur-md hover:bg-white hover:border-slate-900 hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)] transition-all duration-700"
             >
-              <div className="relative h-64 md:h-auto overflow-hidden bg-slate-100">
+              {/* Image Side */}
+              <div className="relative h-72 md:h-auto overflow-hidden bg-slate-200">
                 <Image
                   src={service.image}
                   alt={service.title}
                   fill
-                  className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0"
+                  className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 grayscale group-hover:grayscale-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent md:hidden" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#e2e8f0]/80 via-transparent to-transparent md:hidden" />
               </div>
 
-              <div className="p-8 md:p-16 flex flex-col justify-center space-y-6">
-                <span className="text-[10px] font-black text-slate-400 tracking-[0.3em] uppercase">Phase 0{i + 1}</span>
-                <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tighter uppercase leading-tight">
+              {/* Text Side */}
+              <div className="p-10 md:p-20 flex flex-col justify-center space-y-6">
+                <div className="flex items-center gap-3">
+                  <span className="h-[1px] w-8 bg-slate-300" />
+                  <span className="text-[10px] font-black text-slate-400 tracking-[0.3em] uppercase">Phase 0{i + 1}</span>
+                </div>
+                
+                <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter uppercase leading-tight group-hover:text-indigo-600 transition-colors duration-500">
                   {service.title}
                 </h2>
-                <p className="text-slate-500 text-base md:text-lg leading-relaxed font-medium">
+                
+                <p className="text-slate-600 text-base md:text-xl leading-relaxed font-medium">
                   {service.desc}
                 </p>
                 
-                <div className="h-[2px] w-12 bg-slate-200 group-hover:w-20 group-hover:bg-slate-900 transition-all duration-500" />
+                <div className="pt-4">
+                   <div className="h-[2px] w-12 bg-slate-200 group-hover:w-24 group-hover:bg-indigo-600 transition-all duration-700" />
+                </div>
 
                 {service.id === 'lets-build-together' && (
                   <Link
                     href="/#contact"
-                    className="inline-flex items-center gap-3 w-fit px-10 py-5 rounded-2xl bg-slate-900 text-white font-black text-xs uppercase tracking-widest hover:bg-indigo-600 transition-all shadow-xl no-underline"
+                    className="mt-6 inline-flex items-center gap-3 w-fit px-12 py-5 rounded-full bg-slate-900 text-white font-black text-[11px] uppercase tracking-widest hover:bg-indigo-600 transition-all shadow-2xl hover:scale-105 active:scale-95 no-underline"
                   >
                     Discuss Project <FiArrowRight className="text-lg" />
                   </Link>
@@ -120,7 +132,7 @@ export default function ServicesPage() {
         </div>
       </div>
 
-      <div className="mt-24 h-[1px] w-full bg-slate-200" />
+      <div className="mt-24 h-[1px] w-full bg-slate-300/50" />
     </section>
   );
 }

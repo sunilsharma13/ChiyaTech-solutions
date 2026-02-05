@@ -1,100 +1,119 @@
 "use client";
-import { Stars } from "@react-three/drei";
+
+import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { useEffect } from "react";
-import Link from 'next/link';
+import { OrbitControls, Float, Stars, MeshDistortMaterial, Icosahedron } from "@react-three/drei";
 import { FiArrowRight, FiZap } from "react-icons/fi";
-import { useMotionTemplate, useMotionValue, motion, animate } from "framer-motion";
+import { motion } from "framer-motion";
+
+const GeometricSpark = () => {
+  return (
+    <Canvas className="h-[300px] md:h-[450px] lg:h-[550px]">
+      <OrbitControls enableZoom={false} />
+      <ambientLight intensity={0.5} />
+      <pointLight position={[10, 10, 10]} intensity={1} color="#6366F1" />
+      <Suspense fallback={null}>
+        <Float speed={3} rotationIntensity={2} floatIntensity={1.5}>
+          <Icosahedron args={[1, 15]} scale={2.2}>
+            <MeshDistortMaterial
+              color="#94A3B8"
+              attach="material"
+              distort={0.3}
+              speed={2}
+              wireframe={true}
+            />
+          </Icosahedron>
+        </Float>
+      </Suspense>
+    </Canvas>
+  );
+};
 
 export default function AuroraHero() {
-  const color = useMotionValue("#64748B");
-
-  useEffect(() => {
-    animate(color, ["#64748B", "#6B7280", "#475569", "#64748B"], {
-      ease: "easeInOut",
-      duration: 16,
-      repeat: Infinity,
-      repeatType: "mirror",
-    });
-  }, [color]);
-
-  const backgroundImage = useMotionTemplate`
-    radial-gradient(120% 120% at 50% 0%, #F9FAFB 45%, ${color}08),
-    radial-gradient(90% 90% at 30% 70%, #F1F5F9 0%, transparent 60%),
-    radial-gradient(90% 90% at 70% 30%, #E2E8F0 0%, transparent 60%)
-  `;
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 md:pb-20 overflow-hidden bg-[#F9FAFB]">
-      <motion.div style={{ backgroundImage }} className="absolute inset-0 z-0" />
-
-      <div className="absolute inset-0 z-0 opacity-[0.04] [mask-image:radial-gradient(ellipse_at_center,black,transparent_85%)]">
-        <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] bg-[size:60px_60px]" />
-      </div>
-
-      <div className="relative z-10 w-[92%] sm:w-[85%] md:w-[70%] lg:w-[65%] mx-auto text-center px-4">
-        <motion.div
-          initial={{ opacity: 0, y: -30, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 md:py-2 rounded-full bg-white/70 backdrop-blur-md border border-slate-200/60 shadow-sm mb-6 md:mb-10 text-sm md:text-base"
-        >
-          <FiZap className="text-slate-600 text-sm md:text-base" />
-          <span className="font-semibold tracking-wide text-slate-800 uppercase text-xs md:text-sm">
-            AI · Innovate · Scale
-          </span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-tight md:leading-[1.05] mb-6 md:mb-8"
-        >
-          Software That <br className="hidden sm:inline" />
-          <span className="bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 bg-clip-text text-transparent">
-            Actually Moves the Needle
-          </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          className="max-w-3xl mx-auto text-slate-600 text-base sm:text-lg md:text-xl leading-relaxed mb-10 md:mb-14"
-        >
-          We build scalable, AI-driven digital products and immersive web experiences. High-performance code. Zero excuses. Real results.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 items-center"
-        >
-          <Link
-            href="/#portfolio"
-            className="w-full sm:w-auto px-8 py-3.5 md:px-10 md:py-4 bg-slate-800 text-white rounded-xl font-semibold text-base md:text-lg tracking-wide hover:bg-slate-900 transition shadow-md hover:shadow-xl active:scale-98"
-          >
-            Explore Our Work
-          </Link>
-
-          <Link
-            href="/#contact"
-            className="group w-full sm:w-auto px-8 py-3.5 md:px-10 md:py-4 bg-white/80 backdrop-blur-sm border border-slate-300 text-slate-800 rounded-xl font-semibold text-base md:text-lg tracking-wide hover:bg-white hover:border-slate-400 hover:shadow-md transition flex items-center justify-center gap-2 active:scale-98"
-          >
-            Get in Touch
-            <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </motion.div>
-      </div>
-
-      <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
-        <Canvas camera={{ position: [0, 0, 1] }}>
-          <Stars radius={50} count={400} factor={4} fade speed={0.4} />
+    <section id="hero" className="relative min-h-screen bg-[#020617] flex items-center justify-center overflow-hidden">
+      
+      {/* Background elements */}
+      <div className="absolute inset-0 z-0 opacity-20">
+        <Canvas>
+          <Stars radius={50} count={2000} factor={4} fade speed={1} />
         </Canvas>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-t from-[#F9FAFB] to-transparent pointer-events-none" />
+      {/* FIXED: Added more padding-top (pt-32) for mobile to clear the Navbar */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-32 md:pt-24 lg:pt-20 flex flex-col items-center">
+        
+        {/* Next-Gen Engineering Badge */}
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6 flex justify-center w-full"
+        >
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/5 bg-white/5 px-4 py-1.5 mt-4 text-[10px] font-bold tracking-[0.3em] text-slate-400 backdrop-blur-md uppercase">
+            <FiZap className="text-indigo-500" /> Next-Gen Engineering
+          </span>
+        </motion.div>
+
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center w-full">
+          
+          {/* Left Side: Content */}
+          <div className="text-center lg:text-left flex flex-col items-center lg:items-start order-2 lg:order-1">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-5xl md:text-7xl lg:text-8xl font-black leading-[1] text-white uppercase italic tracking-tighter"
+            >
+              AI. Data. <br /> 
+              <span className="text-slate-500 not-italic">Web Architecture.</span>
+            </motion.h1>
+
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="mt-6 max-w-lg text-base md:text-xl text-slate-400 font-medium leading-relaxed"
+            >
+              ChiyaTech specializes in building high-performance websites, 
+              intelligent AI integrations, and scalable data storage solutions.
+            </motion.p>
+          </div>
+
+          {/* Right Side: Geometric Spark */}
+          <div className="flex justify-center items-center h-[280px] md:h-[450px] relative order-1 lg:order-2">
+            <GeometricSpark />
+            <div className="absolute w-56 h-56 bg-indigo-500/10 blur-[100px] rounded-full z-[-1]" />
+          </div>
+        </div>
+
+        {/* Buttons */}
+        <div className="mt-10 lg:mt-8 flex flex-col sm:flex-row gap-6 items-center justify-center w-full pb-16">
+          <motion.a
+            href="#ready-to-move"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="group relative flex items-center gap-3 rounded-full bg-indigo-600 px-12 py-4 text-xs font-black uppercase tracking-[0.2em] text-white transition-all no-underline shadow-2xl shadow-indigo-500/20"
+          >
+            Start a Project
+            <FiArrowRight className="text-lg transition-transform group-hover:translate-x-1" />
+          </motion.a>
+          
+          <a href="#portfolio" className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 hover:text-white transition-colors no-underline">
+            Our Expertise
+          </a>
+        </div>
+      </div>
+
+      {/* 3D Grid Floor */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-[400px] opacity-10 pointer-events-none"
+        style={{
+          background: `linear-gradient(to right, #ffffff10 1px, transparent 1px), linear-gradient(to bottom, #ffffff10 1px, transparent 1px)`,
+          backgroundSize: '80px 80px',
+          transform: 'perspective(1000px) rotateX(60deg)',
+          maskImage: 'linear-gradient(to top, black, transparent)'
+        }}
+      />
     </section>
   );
 }

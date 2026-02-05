@@ -3,32 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --background: #F1F5F9; 
-  --foreground: #0F172A;
+  --background: #030303;
+  --glow: rgba(79, 70, 229, 0.4);
 }
-html {
-  scroll-behavior: smooth;
-}
+
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
+  background-color: var(--background);
+  color: white;
+  overflow-x: hidden;
+}
+/* globals.css */
+html, body {
+  background-color: #020617 !important; /* Force dark background everywhere */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+/* Glass Effect */
+.glass-3d {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
 }
 
-.btn-shadow {
-  @apply shadow-sm transition-all duration-300;
-  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.1), 0 2px 4px -1px rgba(79, 70, 229, 0.06);
-}
-
-.btn-shadow:hover {
-  @apply shadow-md;
-  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
+/* Grainy Background */
+.grainy-bg {
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  filter: contrast(150%) brightness(100%);
 }
