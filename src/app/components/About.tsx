@@ -11,19 +11,19 @@ export default function About() {
 
   const principles = [
     {
-      title: "Direct Execution",
+      title: "Fast. Focused. Done.",
       icon: <FiZap />,
-      desc: "Work directly with architects. No middle management lag—just raw technical speed.",
+      desc: "No delays, no unnecessary layers. We execute fast and deliver systems that are ready to perform from day one.",
     },
     {
-      title: "Scale First",
+      title: "Built for Scale",
       icon: <FiLayers />,
-      desc: "Cloud-native architecture designed to handle 10x growth without slowing down.",
+      desc: "Every product is designed to handle growth — more users, more data, more demand — without breaking.",
     },
     {
-      title: "ROI Driven",
+      title: "Results Over Hype",
       icon: <FiTrendingUp />,
-      desc: "We prioritize conversion over fluff. If it doesn't move the needle, we don't build it.",
+      desc: "We don’t build for aesthetics alone. Everything we create is focused on driving real business outcomes.",
     },
   ];
 
@@ -32,14 +32,13 @@ export default function About() {
       id="about"
       className="relative py-24 md:py-32 overflow-hidden"
       style={{
-        // Gradient thoda deep kiya hai taaki top text chamke
         background: "linear-gradient(to bottom, #020617 0%, #1e293b 60%, #cbd5e1 100%)"
       }}
     >
       <div ref={ref} className="w-[90%] md:w-[75%] mx-auto relative z-10">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           
-          {/* Left Content */}
+          {/* LEFT */}
           <div className="lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -48,23 +47,22 @@ export default function About() {
               className="space-y-6"
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-400/30 bg-indigo-500/10 text-indigo-400 text-[10px] font-bold tracking-widest uppercase">
-                <FiActivity className="animate-pulse" /> Our Mission
+                <FiActivity className="animate-pulse" /> About ChiyaTech
               </div>
 
-              {/* Heading fix: White for visibility, Indigo for pop */}
               <h2 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] text-white uppercase italic">
-                Engineering <br />
-                <span className="text-indigo-500 not-italic">Digital Dominance.</span>
+                We Build Systems <br />
+                <span className="text-indigo-500 not-italic">That Actually Work.</span>
               </h2>
 
               <p className="max-w-xl text-lg md:text-xl text-slate-300 font-medium leading-relaxed pt-4">
-                We fixed the broken agency model. ChiyaTech builds 
-                <span className="text-white font-extrabold italic"> high-velocity </span> 
-                systems that turn ambitious founders into market leaders.
+                ChiyaTech is a technology partner for businesses that want more than just a website. 
+                We design, build, and scale high-performance digital products — from websites and applications 
+                to AI-powered systems — focused on growth, automation, and real results.
               </p>
 
               <div className="flex flex-wrap gap-6 pt-6">
-                {["Next.js", "AI/ML", "Cloud Native"].map((tech) => (
+                {["Web Platforms", "AI Systems", "Automation"].map((tech) => (
                   <span
                     key={tech}
                     className="text-[11px] font-black border-b-2 border-indigo-500/50 text-slate-300 uppercase tracking-[0.2em]"
@@ -76,7 +74,7 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Right Principles - Metallic Glass Cards */}
+          {/* RIGHT */}
           <div className="lg:col-span-5 space-y-4 pt-10 lg:pt-0">
             {principles.map((item, i) => (
               <motion.div
@@ -100,7 +98,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Bottom Banner - Sleek & High Contrast */}
+        {/* CTA */}
         <motion.div
           id="ready-to-move"
           initial={{ opacity: 0, y: 40 }}
@@ -110,10 +108,10 @@ export default function About() {
         >
           <div className="text-center md:text-left">
             <h4 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none mb-2">
-              Ready to architect <br /> the future?
+              Ready to build something <br /> that actually scales?
             </h4>
             <p className="text-slate-400 font-medium">
-              Stop settling for mediocre. Start your elite build today.
+              Let’s create systems that bring real users, real growth, and real results.
             </p>
           </div>
 
@@ -121,7 +119,7 @@ export default function About() {
             href="/#contact"
             className="group flex items-center gap-3 rounded-full border border-white/20 bg-white/5 px-10 py-5 text-[11px] font-black uppercase tracking-widest text-white transition-all hover:bg-white hover:text-slate-900"
           >
-            Start A Project
+            Get Started
             <FiArrowRight className="text-lg transition-transform group-hover:translate-x-2" />
           </Link>
         </motion.div>

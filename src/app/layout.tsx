@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from "next"
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 import ScrollFix from './components/ScrollFix'
 import WhatsAppFloat from './components/WhatsAppFloat'
 import { Plus_Jakarta_Sans } from 'next/font/google';
@@ -25,18 +26,18 @@ export const metadata: Metadata = {
     title: 'ChiyaTech | Engineering Digital Dominance',
     description: 'We build fast, scalable, and intelligent digital products—AI, Web, Apps, and Cloud Solutions.',
     url: 'https://chiyatech.in',
-    siteName: 'ChiyaTech', // <--- Yeh Google ko batayega brand name
+    siteName: 'ChiyaTech',
     locale: 'en_US',
     type: 'website',
   },
   icons: {
     icon: "/favicon.png",
-    apple: "/apple-touch-icon.png", // Mobile users ke liye achha hai
+    apple: "/apple-touch-icon.png",
   },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // JSON-LD Schema: Yeh Google Search results ko "Logo" se "ChiyaTech" mein convert karega
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -54,10 +55,27 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
+
+      {/* 🔥 IMPORTANT CHANGE HERE */}
       <body className="font-sans bg-[#F1F5F9] text-slate-900 selection:bg-indigo-100 selection:text-indigo-700 antialiased">
+        
         <ScrollFix />
-        <Navbar />
-        <main>{children}</main>
+
+        {/* 🔥 FLEX WRAPPER */}
+        <div className="min-h-screen flex flex-col">
+          
+          <Navbar />
+
+          {/* CONTENT STRETCH */}
+          <main className="flex-1">
+            {children}
+          </main>
+
+          {/* FOOTER FIXED */}
+          <Footer />
+
+        </div>
+
         <WhatsAppFloat />
       </body>
     </html>

@@ -22,17 +22,17 @@ export default function ReadyToStart() {
           transition={{ duration: 0.8 }}
         >
           <span className="inline-block text-[10px] md:text-xs font-black tracking-[0.5em] text-slate-400 uppercase mb-8">
-            The Final Step
+            Start Here
           </span>
 
           <h2 className="text-5xl sm:text-6xl md:text-8xl font-[800] tracking-tighter text-slate-900 leading-[0.95] mb-10 uppercase">
-            READY TO BUILD <br />
-            <span className="text-slate-400 italic font-medium">THE FUTURE?</span>
+            LET’S BUILD SOMETHING <br />
+            <span className="text-slate-400 italic font-medium">THAT ACTUALLY GROWS.</span>
           </h2>
 
           <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto mb-16 leading-relaxed font-medium">
-            We’re a focused team turning bold ideas into fast, scalable digital products. 
-            Stop waiting — let’s architect your success.
+            Whether it’s a website, app, or AI system — we build products that bring users, generate leads, 
+            and scale with your business.
           </p>
 
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
@@ -40,10 +40,10 @@ export default function ReadyToStart() {
               href="https://calendly.com/chiyatech17/30min" 
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-3 px-10 py-6 bg-slate-800 text-white text-xs md:text-sm font-black uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-slate-200 transition-all hover:bg-slate-900 no-underline"
+              className="group flex items-center gap-3 px-10 py-6 bg-slate-900 text-white text-xs md:text-sm font-black uppercase tracking-[0.2em] rounded-2xl shadow-xl shadow-slate-200 transition-all hover:bg-indigo-600 no-underline"
             >
               <FiCalendar className="text-lg" />
-              Book A Strategy Call
+              Book Free Strategy Call
             </motion.a>
 
             <motion.a
@@ -51,13 +51,13 @@ export default function ReadyToStart() {
               whileHover={{ scale: 1.05, y: -2 }}
               className="group flex items-center gap-3 px-10 py-6 bg-white border border-slate-200 text-slate-900 text-xs md:text-sm font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-slate-50 transition-all shadow-sm no-underline"
             >
-              Share Your Idea
+              Tell Us Your Idea
               <FiArrowRight className="transition-transform group-hover:translate-x-2" />
             </motion.a>
           </div>
 
           <p className="mt-14 text-slate-400 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">
-            No pressure. Just a high-value engineering conversation.
+            No sales talk. Just clear direction on what to build and how to scale it.
           </p>
         </motion.div>
       </div>
