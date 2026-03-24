@@ -95,8 +95,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Email</p>
-                  <a href="mailto:chiyatech17@gmail.com" className="text-slate-900 font-bold text-lg hover:text-indigo-600 no-underline">
-                    chiyatech17@gmail.com
+                  <a href="mailto:contact@chiyatech.in" className="text-slate-900 font-bold text-lg hover:text-indigo-600 no-underline">
+                    contact@chiyatech.in
                   </a>
                 </div>
               </div>
