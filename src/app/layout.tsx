@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
 
       {/* 🔥 IMPORTANT CHANGE HERE */}
-      <body className="font-sans bg-[#F1F5F9] text-slate-900 selection:bg-indigo-100 selection:text-indigo-700 antialiased">
+      <body className="font-sans bg-[#020817] text-slate-900 selection:bg-indigo-100 selection:text-indigo-700 antialiased">
         
         <ScrollFix />
 

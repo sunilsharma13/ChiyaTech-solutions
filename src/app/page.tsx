@@ -4,6 +4,7 @@ import Portfolio from './components/Portfolio';
 import Hero from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
+import HowWeWork from './components/HowWeWork';
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <WhyChooseUs />
       <About />
       <Portfolio />
+      <HowWeWork />
       <ReadyToStart />
       <Contact />
     </main>
